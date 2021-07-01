@@ -21,6 +21,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
+    "testTimeout": 30000,
     "moduleFileExtensions": [
       "ts",
       "tsx",
