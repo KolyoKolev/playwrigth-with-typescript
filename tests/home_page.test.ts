@@ -22,7 +22,6 @@ describe('Test the-internet app home page', () => {
 
   test('load the home page', async () => {
     const pageTitle = await page.title();
-    console.log(pageTitle);
     expect(pageTitle).toEqual(pageTitles.theInternet);
   });
 
