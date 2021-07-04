@@ -26,7 +26,7 @@ describe('Test the-internet app home page', () => {
     expect(pageTitle).toEqual(pageTitles.theInternet);
   });
 
-  test('should count the total link on the page', async () => {
+  test('should count the total links on the page', async () => {
     const homePage = new HomePage(page);
     expect(await homePage.getAllLinksOnThePage()).toHaveLength(46);
   });
