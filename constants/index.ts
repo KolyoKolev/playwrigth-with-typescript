@@ -4,6 +4,7 @@ export const urls = {
 };
 
 export const pageTitles = {
+  theInternet: 'The Internet',
   elementalSeleneium:
     'Elemental Selenium: Receive a Free, Weekly Tip on Using Selenium like a Pro',
 };
