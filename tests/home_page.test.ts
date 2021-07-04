@@ -1,9 +1,6 @@
 import { chromium, Browser, BrowserContext, Page } from 'playwright';
 import { urls, pageTitles } from '../constants';
-
-const getListOfLinks = (selector: string) => {
-  return page.$$(selector);
-};
+import { HomePage } from '../pages/home_page';
 
 let browser: Browser;
 let context: BrowserContext;
@@ -30,13 +27,15 @@ describe('Test the-internet app home page', () => {
   });
 
   test('should count the total link on the page', async () => {
-    expect(await getListOfLinks('a')).toHaveLength(46);
+    const homePage = new HomePage(page);
+    expect(await homePage.getAllLinksOnThePage()).toHaveLength(46);
   });
 
   test('should click on the link in the footer', async () => {
+    const homePage = new HomePage(page);
     const [newPage] = await Promise.all([
       context.waitForEvent('page'),
-      page.click('a:has-text("Elemental Selenium")'),
+      homePage.clickOnTheLinkAtTheFooter(),
     ]);
     await newPage.waitForLoadState();
     expect(await newPage.title()).toBe(pageTitles.elementalSeleneium);
